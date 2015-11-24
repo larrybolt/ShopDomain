@@ -59,6 +59,28 @@ public class ProductRepositoryDB extends BaseRepositoryDB implements ProductRepo
 		}
 		return products;
 	}
+	public List<Product> getAllOrderByPrice(){
+		List<Product> products = new ArrayList<>();
+		try {
+			Statement statement = db.createStatement();
+			ResultSet results = statement.executeQuery(String.format("SELECT * FROM %s order by price", this.getTable()));
+			while(results.next()){
+				products.add(
+				  new Product(
+					results.getInt("id"), 
+					results.getString("name"), 
+					results.getDouble("price"), 
+					results.getString("imgurl") 
+				  )
+				);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return products;
+	}
 
 	public void add(Product product){
 		if(product == null){

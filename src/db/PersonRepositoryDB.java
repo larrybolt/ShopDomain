@@ -33,6 +33,7 @@ public class PersonRepositoryDB extends BaseRepositoryDB implements PersonReposi
 					result.getString("password"), 
 					result.getString("firstname"), 
 					result.getString("lastname"),
+					result.getString("woonplaats"),
 					result.getString("salt")
 			);
 		} catch (SQLException e) {
@@ -54,6 +55,7 @@ public class PersonRepositoryDB extends BaseRepositoryDB implements PersonReposi
 					results.getString("password"), 
 					results.getString("firstname"), 
 					results.getString("lastname"),
+					results.getString("woonplaats"),
 					results.getString("salt")
 				  )
 				);
@@ -72,7 +74,7 @@ public class PersonRepositoryDB extends BaseRepositoryDB implements PersonReposi
 		}
 		try {
 			PreparedStatement statement = db.prepareStatement(
-					String.format("INSERT INTO %s (id, email, password, firstname, lastname, salt) VALUES (?,?,?,?,?,?) RETURNING id;", this.getTable())
+					String.format("INSERT INTO %s (id, email, password, firstname, lastname, salt, woonplaats) VALUES (?,?,?,?,?,?,?) RETURNING id;", this.getTable())
 			);
 			statement.setInt(1, this.generateNewId());
 			statement.setString(2, person.getEmail());
@@ -80,6 +82,7 @@ public class PersonRepositoryDB extends BaseRepositoryDB implements PersonReposi
 			statement.setString(4, person.getFirstName());
 			statement.setString(5, person.getLastName());
 			statement.setString(6, person.getSalt());
+			statement.setString(7, person.getWoonplaats());
 			ResultSet result = statement.executeQuery();
 			result.next();
 			this.last_insert_id = result.getInt("id");
@@ -143,6 +146,7 @@ public class PersonRepositoryDB extends BaseRepositoryDB implements PersonReposi
 					result.getString("password"), 
 					result.getString("firstname"), 
 					result.getString("lastname"),
+					result.getString("woonplaats"),
 					result.getString("salt")
 			);
 		} catch (SQLException e) {

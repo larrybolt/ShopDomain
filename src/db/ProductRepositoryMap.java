@@ -41,6 +41,10 @@ public class ProductRepositoryMap implements ProductRepository {
 		return new ArrayList<Product>(Products.values());	
 	}
 
+	public List<Product> getAllOrderByPrice(){
+		return new ArrayList<Product>(Products.values());	
+	}
+
 	public void add(Product product){
 		if(product == null){
 			throw new IllegalArgumentException("No Product given");

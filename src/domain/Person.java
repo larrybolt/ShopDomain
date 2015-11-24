@@ -16,26 +16,29 @@ public class Person {
 	private String lastName;
 	private String salt;
 	private PersonType personType;
+	private String woonplaats;
 
 	/*
 	 * Returns existing person
 	 */
-	public Person(int id, String email, String password, String firstName, String lastName, String salt ) {
+	public Person(int id, String email, String password, String firstName, String lastName, String woonplaats, String salt ) {
 		setId(id);
 		setEmail(email);
 		setPassword(password);
 		setFirstName(firstName);
 		setLastName(lastName);
+		setWoonplaats(woonplaats);
 		setSalt(salt);
 	}
 	/*
 	 * Returns new person, also generates salt and hashes password
 	 */
-	public Person(String email, String password, String firstName, String lastName, PersonType personType) {
+	public Person(String email, String password, String firstName, String lastName, String woonplaats, PersonType personType) {
 		setEmail(email);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setPersonType(personType);
+		setWoonplaats(woonplaats);
 		// generate a new salt
 		setSalt(this.generateSalt());
 		// hash password for user
@@ -66,6 +69,16 @@ public class Person {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public void setWoonplaats(String woonplaats) {
+		if(woonplaats == null || woonplaats.isEmpty()){
+			throw new IllegalArgumentException("No woonplaats given");
+		}
+		this.woonplaats = woonplaats;
+	}
+	public String getWoonplaats(){
+		return this.woonplaats;
 	}
 
 	public String getEmail() {

@@ -28,6 +28,10 @@ public class ProductService {
 		return getProductRepository().getAll();
 	}
 
+	public List<Product> getProductsOrderByPrice() {
+		return getProductRepository().getAllOrderByPrice();
+	}
+
 	public void addProduct(Product product) {
 		product.setId(getProductRepository().generateNewId());
 		getProductRepository().add(product);
