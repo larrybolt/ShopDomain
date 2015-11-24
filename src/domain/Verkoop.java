@@ -1,36 +1,67 @@
 package domain;
-
 import java.util.ArrayList;
 import java.util.List;
-
-public class Verkoop {
+public class Verkoop implements Subject {
 	
-	private List<Product> producten;
+	private List<VerkoopEntry> entries;
+	private List<Observer> observers;
 	private Person customer;
 	
 	public Verkoop(Person customer){
-		producten = new ArrayList<Product>();
-		this.customer=customer;
+		entries = new ArrayList<VerkoopEntry>();
+		observers = new ArrayList<Observer>();
+		this.setCustomer(customer);
 	}
+
 	public void addProduct(Product p, int aantal){
 		if(p == null ){
 			throw new IllegalArgumentException("geef geldig product in");
 		}
-		for(int i = 0; i<aantal;i++){
-			producten.add(p);
+		entries.add(new VerkoopEntry(this, p, aantal));
+	}
+
+	public void removeProduct(Product p){
+		for (VerkoopEntry ve : entries){
+			if (ve.getProduct().equals(p)){
+				entries.remove(ve);
+				break;
+			}
 		}
 	}
-	public void removeProduct(Product p){
-		producten.remove(p);
-	}
+
 	public void clear(){
-		producten.clear();
+		entries.clear();
 	}
+
 	public double getTotalcost(){
 		double cost = 0;
-		for(Product p : producten){
-			cost=cost+ p.getPrice();
+		for (VerkoopEntry ve : entries){
+			cost += ve.getProduct().getPrice() * ve.getCount();
 		}
 		return cost;
+	}
+
+	public Person getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Person customer) {
+		this.customer = customer;
+	}
+
+	@Override
+	public void addObserver(Observer observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(Observer observer) {
+		observers.remove(observer);
+	}
+
+	@Override
+	public void notifyObserver() {
+		for(Observer o : observers)
+			o.update();
 	}
 }
