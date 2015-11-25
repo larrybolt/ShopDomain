@@ -5,12 +5,10 @@ public class Verkoop implements Subject {
 	
 	private List<VerkoopEntry> entries;
 	private List<Observer> observers;
-	private Person customer;
 	
-	public Verkoop(Person customer){
+	public Verkoop(){
 		entries = new ArrayList<VerkoopEntry>();
 		observers = new ArrayList<Observer>();
-		this.setCustomer(customer);
 	}
 
 	public void addProduct(Product p, int aantal){
@@ -18,6 +16,7 @@ public class Verkoop implements Subject {
 			throw new IllegalArgumentException("geef geldig product in");
 		}
 		entries.add(new VerkoopEntry(this, p, aantal));
+		notifyObservers();
 	}
 
 	public void removeProduct(Product p){
@@ -27,10 +26,12 @@ public class Verkoop implements Subject {
 				break;
 			}
 		}
+		notifyObservers();
 	}
 
 	public void clear(){
 		entries.clear();
+		notifyObservers();
 	}
 
 	public double getTotalcost(){
@@ -41,13 +42,6 @@ public class Verkoop implements Subject {
 		return cost;
 	}
 
-	public Person getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Person customer) {
-		this.customer = customer;
-	}
 
 	@Override
 	public void addObserver(Observer observer) {
@@ -60,7 +54,7 @@ public class Verkoop implements Subject {
 	}
 
 	@Override
-	public void notifyObserver() {
+	public void notifyObservers() {
 		for(Observer o : observers)
 			o.update();
 	}

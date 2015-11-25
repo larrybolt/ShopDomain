@@ -5,7 +5,41 @@ public class ShopFacade {
 	private Verkoop verkoop;
 	
 	public ShopFacade(){
-		
+		this.productService = new ProductService();
+		this.personService = new PersonService();
 	}
+	
+	public void addProduct(int id, int aantal){
+		Product product = productService.getProduct(id);
+		if( product == null){
+			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
+		}
+		verkoop.addProduct(product, aantal);
+	}
+	
+	public void removeProduct(int id){
+		Product product = productService.getProduct(id);
+		if( product == null){
+			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
+		}
+		verkoop.removeProduct(product);
+	}
+	
+	public void clearProducts(){
+		verkoop.clear();
+	}
+	
+	public double getTotalCost(){
+		return verkoop.getTotalcost();
+	}
+	
+	public void addObserver(Observer observer){
+		verkoop.addObserver(observer);
+	}
+	
+	public void removeObserver(Observer observer){
+		verkoop.removeObserver(observer);
+	}
+	
 	
 }
