@@ -7,11 +7,12 @@ public class ShopFacade {
 	public ShopFacade(){
 		this.productService = new ProductService();
 		this.personService = new PersonService();
+		this.verkoop = new Verkoop();
 	}
 	
 	public void addProduct(int id, int aantal){
 		Product product = productService.getProduct(id);
-		if( product == null){
+		if(product == null){
 			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
 		}
 		verkoop.addProduct(product, aantal);
@@ -19,7 +20,7 @@ public class ShopFacade {
 	
 	public void removeProduct(int id){
 		Product product = productService.getProduct(id);
-		if( product == null){
+		if(product == null){
 			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
 		}
 		verkoop.removeProduct(product);

@@ -56,6 +56,6 @@ public class Verkoop implements Subject {
 	@Override
 	public void notifyObservers() {
 		for(Observer o : observers)
-			o.update();
+			o.update(this);
 	}
 }
