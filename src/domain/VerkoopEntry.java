@@ -37,4 +37,8 @@ public class VerkoopEntry {
 	public void setCount(int count) {
 		this.count = count;
 	}
+
+	public double getEntryPrice(){
+		return getCount()*getProduct().getPrice();
+	}
 }

@@ -15,6 +15,7 @@ public class Verkoop implements Subject {
 		if(p == null ){
 			throw new IllegalArgumentException("geef geldig product in");
 		}
+		// @TODO: vragen of double binding nodig of nuttig is
 		entries.add(new VerkoopEntry(this, p, aantal));
 		notifyObservers();
 	}
@@ -40,6 +41,10 @@ public class Verkoop implements Subject {
 			cost += ve.getProduct().getPrice() * ve.getCount();
 		}
 		return cost;
+	}
+
+	public List<VerkoopEntry> getProducts(){
+		return this.entries;
 	}
 
 

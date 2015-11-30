@@ -1,4 +1,7 @@
 package domain;
+
+import java.util.ArrayList;
+
 public class ShopFacade {
 	private ProductService productService;
 	private PersonService personService;
@@ -25,7 +28,16 @@ public class ShopFacade {
 		}
 		verkoop.removeProduct(product);
 	}
-	
+
+	public ArrayList<Product> getProducts(){
+		return (ArrayList<Product>)productService.getProducts();
+	}
+
+	public ArrayList<VerkoopEntry> getVerkoopProducts(){
+		return (ArrayList<VerkoopEntry>)verkoop.getProducts();
+	}
+
+
 	public void clearProducts(){
 		verkoop.clear();
 	}
