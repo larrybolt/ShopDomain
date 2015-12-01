@@ -52,7 +52,6 @@ public class PersonService {
 	private PersonRepository getPersonRepository() {
 		return personRepository;
 	}
-	// TODO: @Annelore, add login function
 	/*
 	 * Login functions
 	 * 

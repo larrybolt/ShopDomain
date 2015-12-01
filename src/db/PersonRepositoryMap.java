@@ -11,6 +11,7 @@ import domain.Person;
 public class PersonRepositoryMap implements PersonRepository {
 	private Map<Integer, Person> persons = new HashMap<Integer, Person>();
 	
+	// TODO Implement
 	public PersonRepositoryMap () {
 	}
 	
@@ -48,7 +49,6 @@ public class PersonRepositoryMap implements PersonRepository {
 
 	@Override
 	public Person get(int personId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -59,7 +59,6 @@ public class PersonRepositoryMap implements PersonRepository {
 
 	@Override
 	public Person getPersonByEmail(String email) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
