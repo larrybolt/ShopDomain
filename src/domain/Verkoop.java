@@ -1,10 +1,13 @@
 package domain;
 import java.util.ArrayList;
 import java.util.List;
+
+import domain.korting.Korting;
 public class Verkoop implements Subject {
 	
 	private List<VerkoopEntry> entries;
 	private List<Observer> observers;
+	private Korting korting;
 	
 	public Verkoop(){
 		entries = new ArrayList<VerkoopEntry>();
@@ -15,7 +18,7 @@ public class Verkoop implements Subject {
 		if(p == null ){
 			throw new IllegalArgumentException("geef geldig product in");
 		}
-		// @TODO: vragen of double binding nodig of nuttig is
+		// TODO: vragen of double binding nodig of nuttig is
 		entries.add(new VerkoopEntry(this, p, aantal));
 		notifyObservers();
 	}
@@ -35,18 +38,24 @@ public class Verkoop implements Subject {
 		notifyObservers();
 	}
 
-	public double getTotalcost(){
+	public double getTotalcostWithoutKorting(){
 		double cost = 0;
 		for (VerkoopEntry ve : entries){
 			cost += ve.getProduct().getPrice() * ve.getCount();
 		}
 		return cost;
 	}
+	
+	public double getTotalcost(){
+		if (this.getKorting() != null){
+			return this.getKorting().berekenKorting(this);
+		}
+		return this.getTotalcostWithoutKorting();
+	}
 
 	public List<VerkoopEntry> getProducts(){
 		return this.entries;
 	}
-
 
 	@Override
 	public void addObserver(Observer observer) {
@@ -62,5 +71,14 @@ public class Verkoop implements Subject {
 	public void notifyObservers() {
 		for(Observer o : observers)
 			o.update(this);
+	}
+
+	public Korting getKorting() {
+		return korting;
+	}
+
+	public void setKorting(Korting korting) {
+		this.korting = korting;
+		notifyObservers();
 	}
 }

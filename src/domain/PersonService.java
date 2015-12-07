@@ -52,14 +52,6 @@ public class PersonService {
 	private PersonRepository getPersonRepository() {
 		return personRepository;
 	}
-	/*
-	 * Login functions
-	 * 
-	 * @param	email:String
-	 * @param	password:String
-	 * 
-	 * Returns Person-instance if login was succesful, otherwise throws exception.
-	 */
 	public Person authenticate(String email, String password){
 		if(email == null || password == null){
 			throw new IllegalArgumentException("email or password is null");
