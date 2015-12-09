@@ -28,7 +28,7 @@ public class ShopFacade {
 		if(product == null){
 			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
 		}
-		verkoop.removeProduct(product);
+		verkoopService.removeProduct(product);
 	}
 
 	public ArrayList<Product> getProducts(){
@@ -36,24 +36,24 @@ public class ShopFacade {
 	}
 
 	public ArrayList<VerkoopEntry> getVerkoopProducts(){
-		return (ArrayList<VerkoopEntry>)verkoop.getProducts();
+		return (ArrayList<VerkoopEntry>)verkoopService.getVerkoopProducts();
 	}
 
 
 	public void clearProducts(){
-		verkoop.clear();
+		verkoopService.clearProducts();
 	}
 	
 	public double getTotalCost(){
-		return verkoop.getTotalcost();
+		return verkoopService.getTotalCost();
 	}
 	
 	public void addObserver(Observer observer){
-		verkoop.addObserver(observer);
+		verkoopService.addObserver(observer);
 	}
 	
 	public void removeObserver(Observer observer){
-		verkoop.removeObserver(observer);
+		verkoopService.removeObserver(observer);
 	}
 	//PersonService
 	public Person getPerson(int id){
@@ -102,6 +102,6 @@ public class ShopFacade {
 		 productService.updateProducts(p);
 	}
 	public void pay(double amound){
-		verkoop.pay(amound);
+		verkoopService.pay(amound);
 	}
 }
