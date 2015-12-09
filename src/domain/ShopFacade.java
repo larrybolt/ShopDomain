@@ -2,7 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 
-import domain.korting.Korting;
+import java.util.List;
 
 public class ShopFacade {
 	private ProductService productService;
@@ -16,7 +16,7 @@ public class ShopFacade {
 		this.verkoop = new Verkoop();
 		this.kortingService = new KortingService();
 	}
-	
+
 	public void addProduct(int id, int aantal){
 		Product product = productService.getProduct(id);
 		if(product == null){
@@ -30,7 +30,7 @@ public class ShopFacade {
 		if(product == null){
 			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
 		}
-		verkoop.removeProduct(product);
+		verkoopService.removeProduct(product);
 	}
 	
 	public ArrayList<Product> getProducts(){
@@ -38,26 +38,49 @@ public class ShopFacade {
 	}
 
 	public ArrayList<VerkoopEntry> getVerkoopProducts(){
-		return (ArrayList<VerkoopEntry>)verkoop.getProducts();
+		return (ArrayList<VerkoopEntry>)verkoopService.getVerkoopProducts();
 	}
 
 
 	public void clearProducts(){
-		verkoop.clear();
+		verkoopService.clearProducts();
 	}
 	
 	public double getTotalCost(){
-		return verkoop.getTotalcostWithoutKorting();
+		return verkoopService.getTotalCost();
 	}
 	
 	// observers
 	public void addObserver(Observer observer){
-		verkoop.addObserver(observer);
+		verkoopService.addObserver(observer);
 	}
 	
 	public void removeObserver(Observer observer){
-		verkoop.removeObserver(observer);
+		verkoopService.removeObserver(observer);
 	}
+	//PersonService
+	public Person getPerson(int id){
+		return personService.getPerson(id);
+	}
+	public void addPerson(Person p){
+		personService.addPerson(p);
+	}
+	public void deletePerson(int id){
+		personService.deletePerson(id);
+	}
+	public void deletePerson(String id){
+		personService.deletePerson(id);
+	}
+	public Person getPersonByEmail(String email){
+		return personService.getPersonByEmail(email);
+	}
+	public Person authenticate(String email, String password){
+		return personService.authenticate(email, password);
+	}
+	public List<Person> getPersons(){
+		return personService.getPersons();
+	}
+	//ProductService
 	
 	// korting
 	public void applyKorting(String kortingcode) {
@@ -69,25 +92,31 @@ public class ShopFacade {
 			throw new IllegalArgumentException("No such korting found!");
 		}
 	}
-	public void removeKorting(){
-		getVerkoop().setKorting(null);
+	public void deleteProductinDB(String id){
+		productService.deleteProduct(id);
 	}
 
 	// getters
-	public ProductService getProductService() {
-		return productService;
+	public Product getProduct(int id){
+		return productService.getProduct(id);
 	}
 
-	public PersonService getPersonService() {
-		return personService;
+	public Product getProduct(String id){
+		return productService.getProduct(id);
 	}
 
 	public Verkoop getVerkoop() {
 		return verkoop;
 	}
 
-	public KortingService getKortingService() {
-		return kortingService;
+	public List<Product> getProductsFromDBOrderByPrice(){
+		return productService.getProductsOrderByPrice();
 	}
 
+	public void updateProducts(Product p) {
+		 productService.updateProducts(p);
+	}
+	public void pay(double amound){
+		verkoopService.pay(amound);
+	}
 }

@@ -7,11 +7,12 @@ public class Verkoop implements Subject {
 	
 	private List<VerkoopEntry> entries;
 	private List<Observer> observers;
-	private Korting korting;
+	private State currentState;
 	
 	public Verkoop(){
 		entries = new ArrayList<VerkoopEntry>();
 		observers = new ArrayList<Observer>();
+		currentState =  new NotPaidState();
 	}
 
 	public void addProduct(Product p, int aantal){
@@ -44,8 +45,8 @@ public class Verkoop implements Subject {
 			cost += ve.getProduct().getPrice() * ve.getCount();
 		}
 		return cost;
-	}
 	
+	}
 	public double getTotalcost(){
 		if (this.getKorting() != null){
 			return this.getKorting().berekenKorting(this);
@@ -56,6 +57,7 @@ public class Verkoop implements Subject {
 	public List<VerkoopEntry> getProducts(){
 		return this.entries;
 	}
+
 
 	@Override
 	public void addObserver(Observer observer) {
@@ -73,12 +75,9 @@ public class Verkoop implements Subject {
 			o.update(this);
 	}
 
-	public Korting getKorting() {
-		return korting;
-	}
-
-	public void setKorting(Korting korting) {
-		this.korting = korting;
-		notifyObservers();
+	public void pay(double amound){
+		if(this.currentState instanceof NotPaidState){
+			currentState = currentState.pay(amound);
+		}
 	}
 }
