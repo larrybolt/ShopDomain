@@ -1,18 +1,20 @@
 package domain;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class ShopFacade {
 	private ProductService productService;
 	private PersonService personService;
-	
-	private VerkoopService verkoopService;
+	private Verkoop verkoop;
+	private KortingService kortingService;
 	
 	public ShopFacade(){
 		this.productService = new ProductService();
 		this.personService = new PersonService();
-		this.verkoopService = new VerkoopService();
+		this.verkoop = new Verkoop();
+		this.kortingService = new KortingService();
 	}
 
 	public void addProduct(int id, int aantal){
@@ -20,7 +22,7 @@ public class ShopFacade {
 		if(product == null){
 			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
 		}
-		verkoopService.addProduct(product, aantal);
+		verkoop.addProduct(product, aantal);
 	}
 	
 	public void removeProduct(int id){
@@ -30,7 +32,7 @@ public class ShopFacade {
 		}
 		verkoopService.removeProduct(product);
 	}
-
+	
 	public ArrayList<Product> getProducts(){
 		return (ArrayList<Product>)productService.getProducts();
 	}
@@ -48,6 +50,7 @@ public class ShopFacade {
 		return verkoopService.getTotalCost();
 	}
 	
+	// observers
 	public void addObserver(Observer observer){
 		verkoopService.addObserver(observer);
 	}
@@ -79,21 +82,33 @@ public class ShopFacade {
 	}
 	//ProductService
 	
-	public void addProductinDB(Product product){
-		productService.addProduct(product);
+	// korting
+	public void applyKorting(String kortingcode) {
+		Korting korting = getKortingService().getKorting(kortingcode);
+		if (korting != null){
+			getVerkoop().setKorting(korting);
+		}
+		else {
+			throw new IllegalArgumentException("No such korting found!");
+		}
 	}
 	public void deleteProductinDB(String id){
 		productService.deleteProduct(id);
 	}
+
+	// getters
 	public Product getProduct(int id){
 		return productService.getProduct(id);
 	}
+
 	public Product getProduct(String id){
 		return productService.getProduct(id);
 	}
-	public List<Product> getProductsFromDB(){
-		return productService.getProducts();
+
+	public Verkoop getVerkoop() {
+		return verkoop;
 	}
+
 	public List<Product> getProductsFromDBOrderByPrice(){
 		return productService.getProductsOrderByPrice();
 	}

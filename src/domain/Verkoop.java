@@ -1,6 +1,8 @@
 package domain;
 import java.util.ArrayList;
 import java.util.List;
+
+import domain.korting.Korting;
 public class Verkoop implements Subject {
 	
 	private List<VerkoopEntry> entries;
@@ -37,12 +39,19 @@ public class Verkoop implements Subject {
 		notifyObservers();
 	}
 
-	public double getTotalcost(){
+	public double getTotalcostWithoutKorting(){
 		double cost = 0;
 		for (VerkoopEntry ve : entries){
 			cost += ve.getProduct().getPrice() * ve.getCount();
 		}
 		return cost;
+	
+	}
+	public double getTotalcost(){
+		if (this.getKorting() != null){
+			return this.getKorting().berekenKorting(this);
+		}
+		return this.getTotalcostWithoutKorting();
 	}
 
 	public List<VerkoopEntry> getProducts(){
@@ -65,6 +74,7 @@ public class Verkoop implements Subject {
 		for(Observer o : observers)
 			o.update(this);
 	}
+
 	public void pay(double amound){
 		if(this.currentState instanceof NotPaidState){
 			currentState = currentState.pay(amound);
