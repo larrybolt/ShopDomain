@@ -4,16 +4,18 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import domain.korting.Korting;
+
 public class ShopFacade {
 	private ProductService productService;
 	private PersonService personService;
-	private Verkoop verkoop;
+	private VerkoopService verkoopService;
 	private KortingService kortingService;
 	
 	public ShopFacade(){
 		this.productService = new ProductService();
 		this.personService = new PersonService();
-		this.verkoop = new Verkoop();
+		this.verkoopService = new VerkoopService();
 		this.kortingService = new KortingService();
 	}
 
@@ -22,7 +24,7 @@ public class ShopFacade {
 		if(product == null){
 			throw new IllegalArgumentException("Er bestaat geen product met opgegeven id");
 		}
-		verkoop.addProduct(product, aantal);
+		verkoopService.addProduct(product, aantal);
 	}
 	
 	public void removeProduct(int id){
@@ -86,12 +88,16 @@ public class ShopFacade {
 	public void applyKorting(String kortingcode) {
 		Korting korting = getKortingService().getKorting(kortingcode);
 		if (korting != null){
-			getVerkoop().setKorting(korting);
+			verkoopService.setKorting(korting);
 		}
 		else {
 			throw new IllegalArgumentException("No such korting found!");
 		}
 	}
+	private KortingService getKortingService() {
+		return this.kortingService;
+	}
+
 	public void deleteProductinDB(String id){
 		productService.deleteProduct(id);
 	}
@@ -105,8 +111,8 @@ public class ShopFacade {
 		return productService.getProduct(id);
 	}
 
-	public Verkoop getVerkoop() {
-		return verkoop;
+	public VerkoopService getVerkoopService() {
+		return verkoopService;
 	}
 
 	public List<Product> getProductsFromDBOrderByPrice(){

@@ -3,12 +3,14 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import domain.korting.Korting;
+
 public class VerkoopService {
 	
 	private Verkoop verkoop;
 	
 	public VerkoopService(){
-		
+		verkoop = new Verkoop();
 	}
 	public void addProduct(Product product, int aantal){
 		verkoop.addProduct(product, aantal);
@@ -33,8 +35,11 @@ public class VerkoopService {
 	public void removeObserver(Observer observer){
 		verkoop.removeObserver(observer);
 	}
-	public void pay(double amound) {
-		verkoop.pay(amound);
+	public void pay(double amount) {
+		verkoop.pay(amount);
+	}
+	public void setKorting(Korting korting) {
+		verkoop.setKorting(korting);
 	}
 	
 }

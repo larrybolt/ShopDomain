@@ -2,5 +2,5 @@ package domain;
 
 public interface State {
 	
-	public State pay(double amound);
+	public State pay();
 }

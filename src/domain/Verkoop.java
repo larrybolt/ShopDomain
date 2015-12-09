@@ -8,6 +8,9 @@ public class Verkoop implements Subject {
 	private List<VerkoopEntry> entries;
 	private List<Observer> observers;
 	private State currentState;
+	private IsPaidState ispaid;
+	private NotPaidState notPaid;
+	private Korting korting;
 	
 	public Verkoop(){
 		entries = new ArrayList<VerkoopEntry>();
@@ -75,9 +78,16 @@ public class Verkoop implements Subject {
 			o.update(this);
 	}
 
-	public void pay(double amound){
+	public void pay(double amount){
 		if(this.currentState instanceof NotPaidState){
-			currentState = currentState.pay(amound);
+			currentState = currentState.pay();
 		}
+	}
+
+	public void setKorting(Korting korting) {
+		this.korting = korting;
+	}
+	public Korting getKorting(){
+		return this.korting;
 	}
 }

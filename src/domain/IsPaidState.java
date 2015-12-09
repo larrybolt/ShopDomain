@@ -3,7 +3,7 @@ package domain;
 public class IsPaidState implements State {
 
 	@Override
-	public State pay(double amound) {
+	public State pay() {
 		throw new IllegalArgumentException("amound is already paid");
 	}
 
