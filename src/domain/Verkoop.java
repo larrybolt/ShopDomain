@@ -86,6 +86,7 @@ public class Verkoop implements Subject {
 
 	public void setKorting(Korting korting) {
 		this.korting = korting;
+		notifyObservers();
 	}
 	public Korting getKorting(){
 		return this.korting;
