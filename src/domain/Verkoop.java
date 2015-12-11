@@ -1,21 +1,24 @@
 package domain;
 import java.util.ArrayList;
 import java.util.List;
-
+import domain.State.*;
 import domain.korting.Korting;
+
 public class Verkoop implements Subject {
 	
 	private List<VerkoopEntry> entries;
 	private List<Observer> observers;
 	private State currentState;
 	private IsPaidState ispaid;
-	private NotPaidState notPaid;
+	private NotPaidState notpaid;
 	private Korting korting;
 	
 	public Verkoop(){
 		entries = new ArrayList<VerkoopEntry>();
 		observers = new ArrayList<Observer>();
-		currentState =  new NotPaidState();
+		ispaid = new IsPaidState(this);
+		notpaid = new NotPaidState(this);
+		currentState = this.getNotPaidState();
 	}
 
 	public void addProduct(Product p, int aantal){
@@ -77,11 +80,17 @@ public class Verkoop implements Subject {
 		for(Observer o : observers)
 			o.update(this);
 	}
-
-	public void pay(double amount){
-		if(this.currentState instanceof NotPaidState){
-			currentState = currentState.pay();
-		}
+	public State getNotPaidState() {
+		return notpaid;
+	}
+	public State getPaidState(){
+		return ispaid;
+	}
+	public void pay(Verkoop v){
+		currentState.pay();
+	}
+	public void notPayed(){
+		currentState.notPayed();
 	}
 
 	public void setKorting(Korting korting) {
@@ -90,5 +99,11 @@ public class Verkoop implements Subject {
 	}
 	public Korting getKorting(){
 		return this.korting;
+	}
+	public State getCurrentState(){
+		return this.currentState;
+	}
+	public void setCurrentState(State status){
+		this.currentState = status;
 	}
 }
