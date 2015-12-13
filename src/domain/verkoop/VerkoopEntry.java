@@ -1,4 +1,6 @@
-package domain;
+package domain.verkoop;
+
+import domain.product.Product;
 
 public class VerkoopEntry {
 	private Verkoop verkoop;

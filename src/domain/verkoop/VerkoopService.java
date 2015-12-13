@@ -1,9 +1,9 @@
-package domain;
+package domain.verkoop;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import domain.korting.Korting;
+import domain.product.Product;
 
 public class VerkoopService {
 	

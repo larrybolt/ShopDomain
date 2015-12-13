@@ -1,8 +1,8 @@
 package domain.korting;
 
-import domain.Product;
-import domain.Verkoop;
-import domain.VerkoopEntry;
+import domain.product.Product;
+import domain.verkoop.Verkoop;
+import domain.verkoop.VerkoopEntry;
 
 public class ProductRelativeKorting extends Korting {
 	

@@ -1,6 +1,6 @@
 package domain.korting;
 
-import domain.Verkoop;
+import domain.verkoop.Verkoop;
 
 public class TotaalAbsoluutKorting extends Korting {
 	public TotaalAbsoluutKorting(String code, double korting) {

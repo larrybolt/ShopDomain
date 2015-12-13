@@ -1,4 +1,4 @@
-package db;
+package db.person;
 
 
 import java.sql.Statement;
@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import domain.Person;
-import domain.PersonType;
+
+import db.BaseRepositoryDB;
+import domain.person.Person;
 
 public class PersonRepositoryDB extends BaseRepositoryDB implements PersonRepository {
 	

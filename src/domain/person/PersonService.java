@@ -1,10 +1,10 @@
-package domain;
+package domain.person;
 import java.io.InputStream;
 import java.util.List;
 
-import db.PersonRepository;
-import db.PersonRepositoryDB;
-import db.PersonRepositoryMap;
+import db.person.PersonRepository;
+import db.person.PersonRepositoryDB;
+import db.person.PersonRepositoryMap;
 
 public class PersonService {
 	private PersonRepository personRepository;

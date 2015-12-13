@@ -1,7 +1,7 @@
-package db;
+package db.person;
 
 import java.util.List;
-import domain.Person;
+import domain.person.Person;
 
 public interface PersonRepository {
 		

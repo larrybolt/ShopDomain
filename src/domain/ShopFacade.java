@@ -5,6 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import domain.korting.Korting;
+import domain.person.Person;
+import domain.person.PersonService;
+import domain.product.Product;
+import domain.product.ProductService;
+import domain.verkoop.KortingService;
+import domain.verkoop.Observer;
+import domain.verkoop.VerkoopEntry;
+import domain.verkoop.VerkoopService;
 
 public class ShopFacade {
 	private ProductService productService;

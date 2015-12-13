@@ -1,10 +1,10 @@
-package domain;
+package domain.product;
 import java.io.InputStream;
 import java.util.List;
 
-import db.ProductRepository;
-import db.ProductRepositoryDB;
-import db.ProductRepositoryMap;
+import db.product.ProductRepository;
+import db.product.ProductRepositoryDB;
+import db.product.ProductRepositoryMap;
 
 public class ProductService {
 	private ProductRepository ProductRepository;

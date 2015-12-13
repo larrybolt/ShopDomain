@@ -1,10 +1,10 @@
-package domain;
+package domain.verkoop;
 
 import java.io.InputStream;
 import java.util.List;
 
-import db.KortingRepository;
-import db.KortingRepositoryMap;
+import db.verkoop.KortingRepository;
+import db.verkoop.KortingRepositoryMap;
 import domain.korting.Korting;
 
 public class KortingService {

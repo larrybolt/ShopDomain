@@ -1,4 +1,4 @@
-package db;
+package db.product;
 
 
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import domain.Product;
+import domain.product.Product;
 
 public class ProductRepositoryMap implements ProductRepository {
 	private Map<Integer, Product> Products = new HashMap<Integer, Product>();

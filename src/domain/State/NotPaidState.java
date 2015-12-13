@@ -1,6 +1,6 @@
 package domain.State;
 
-import domain.Verkoop;
+import domain.verkoop.Verkoop;
 
 public class NotPaidState implements State {
 

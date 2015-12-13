@@ -1,4 +1,4 @@
-package db;
+package db.person;
 
 
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import domain.Person;
+import domain.person.Person;
 
 public class PersonRepositoryMap implements PersonRepository {
 	private Map<Integer, Person> persons = new HashMap<Integer, Person>();

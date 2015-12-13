@@ -1,14 +1,11 @@
-package db;
+package db.verkoop;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import domain.Product;
-import domain.Verkoop;
 import domain.korting.Korting;
-import domain.korting.ProductAbsoluutKorting;
 import domain.korting.TotaalAbsoluutKorting;
 import domain.korting.TotaalRelatiefKorting;
 

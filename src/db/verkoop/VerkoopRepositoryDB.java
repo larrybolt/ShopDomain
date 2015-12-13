@@ -1,4 +1,4 @@
-package db;
+package db.verkoop;
 
 import java.io.InputStream;
 import java.sql.PreparedStatement;
@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import domain.Verkoop;
+import db.BaseRepositoryDB;
+import domain.verkoop.Verkoop;
 
 public class VerkoopRepositoryDB extends BaseRepositoryDB implements VerkoopRepository{
 

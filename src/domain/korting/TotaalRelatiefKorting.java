@@ -1,6 +1,6 @@
 package domain.korting;
 
-import domain.Verkoop;
+import domain.verkoop.Verkoop;
 
 public class TotaalRelatiefKorting extends Korting {
 

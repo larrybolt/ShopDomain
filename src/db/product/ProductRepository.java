@@ -1,7 +1,7 @@
-package db;
+package db.product;
 
 import java.util.List;
-import domain.Product;
+import domain.product.Product;
 
 public interface ProductRepository {
 		

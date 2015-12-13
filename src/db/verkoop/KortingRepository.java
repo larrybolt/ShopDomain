@@ -1,4 +1,4 @@
-package db;
+package db.verkoop;
 import java.util.List;
 import domain.korting.Korting;
 

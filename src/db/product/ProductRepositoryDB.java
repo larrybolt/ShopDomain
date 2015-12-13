@@ -1,4 +1,4 @@
-package db;
+package db.product;
 
 
 import java.sql.Statement;
@@ -8,7 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import domain.Product;
+
+import db.BaseRepositoryDB;
+import domain.product.Product;
 
 public class ProductRepositoryDB extends BaseRepositoryDB implements ProductRepository {
 	

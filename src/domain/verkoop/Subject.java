@@ -1,4 +1,4 @@
-package domain;
+package domain.verkoop;
 
 public interface Subject {
 	public void addObserver(Observer observer);

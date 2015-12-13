@@ -1,8 +1,8 @@
-package db;
+package db.verkoop;
 
 import java.util.List;
 
-import domain.Verkoop;
+import domain.verkoop.Verkoop;
 
 public interface VerkoopRepository {
 	public Verkoop get(int id);

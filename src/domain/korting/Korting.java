@@ -1,6 +1,6 @@
 package domain.korting;
 
-import domain.Verkoop;
+import domain.verkoop.Verkoop;
 
 abstract public class Korting {
 	private String code;
