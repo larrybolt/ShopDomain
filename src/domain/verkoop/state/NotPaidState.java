@@ -26,5 +26,10 @@ public class NotPaidState implements State {
 
     }
 
-
+    @Override
+    public void clear() {
+        // TODO: is dit wel juist
+        verkoop.getEntries().clear();
+        verkoop.notifyObservers();
+    }
 }

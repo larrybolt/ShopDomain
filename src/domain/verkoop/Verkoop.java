@@ -11,6 +11,14 @@ import java.util.List;
 
 public class Verkoop implements Subject {
 
+    public List<VerkoopEntry> getEntries() {
+        return entries;
+    }
+
+    public void setEntries(List<VerkoopEntry> entries) {
+        this.entries = entries;
+    }
+
     private List<VerkoopEntry> entries;
     private List<Observer> observers;
     private State currentState;
@@ -35,6 +43,7 @@ public class Verkoop implements Subject {
         notifyObservers();
     }
 
+    // TODO: move this to state
     public void removeProduct(Product p) {
         for (VerkoopEntry ve : entries) {
             if (ve.getProduct().equals(p)) {
@@ -45,9 +54,19 @@ public class Verkoop implements Subject {
         notifyObservers();
     }
 
-    public void clear() {
-        entries.clear();
+    // TODO: move this to state
+    public void removeEntry(int index) {
+        getEntries().remove(index);
         notifyObservers();
+    }
+
+    public void setAmountForEntry(int index, int amount) {
+        getEntries().get(index).setCount(amount);
+        notifyObservers();
+    }
+
+    public void clear() {
+        currentState.clear();
     }
 
     public double getTotalcostWithoutKorting() {

@@ -4,7 +4,7 @@ public interface Observer {
     void update(Subject subject);
     // TODO: vragen of dit de juiste manier is!!
     /*
-	 * We gebruiken pull
+     * We gebruiken pull
 	 * Ik doe het zo, omdat anders onze Observer (meestal SwingViews) een instantie moet hebben
 	 * van Subject, aldus niet via de ShopFacade passeert.
 	 * Op deze manier geeft de Subject bij een update een referentie naar zichzelf door

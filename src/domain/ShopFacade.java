@@ -37,6 +37,14 @@ public class ShopFacade {
         verkoopService.addProduct(product, aantal);
     }
 
+    public void updateEntryAmount(int index, int aantal) {
+        getVerkoopService().setVerkoopEntryAmount(index, aantal);
+    }
+
+    public void removeEntry(int index) {
+        getVerkoopService().removeVerkoopEntry(index);
+    }
+
     public void removeProduct(int id) {
         Product product = productService.getProduct(id);
         if (product == null) {
@@ -128,7 +136,7 @@ public class ShopFacade {
         return productService.getProduct(id);
     }
 
-    public VerkoopService getVerkoopService() {
+    private VerkoopService getVerkoopService() {
         return verkoopService;
     }
 

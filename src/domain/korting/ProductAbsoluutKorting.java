@@ -18,7 +18,7 @@ public class ProductAbsoluutKorting extends Korting {
         boolean found = false;
         double totalPrice = 0;
         /*
-		 * TODO: Moeten we een korting op 1 product kunnen toepassen,
+         * TODO: Moeten we een korting op 1 product kunnen toepassen,
 		 * of op elk product van een type
 		 * of op meerdere producten
 		 */

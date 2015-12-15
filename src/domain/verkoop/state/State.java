@@ -7,4 +7,6 @@ public interface State {
     void pay();
 
     void notPayed();
+
+    void clear();
 }

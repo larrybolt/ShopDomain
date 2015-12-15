@@ -21,6 +21,14 @@ public class VerkoopService {
         return (ArrayList<VerkoopEntry>) verkoop.getProducts();
     }
 
+    public void setVerkoopEntryAmount(int index, int amount) {
+        verkoop.setAmountForEntry(index, amount);
+    }
+
+    public void removeVerkoopEntry(int index) {
+        verkoop.removeEntry(index);
+    }
+
     public void removeProduct(Product product) {
         verkoop.removeProduct(product);
     }

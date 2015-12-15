@@ -123,7 +123,7 @@ public class Person {
                         Person.hashString(password) +
                         "42"
                 /* ideally this comes from configurations or environment values
-				 * this was an attacker needs access to:
+                 * this was an attacker needs access to:
 				 * - database salt
 				 * - config/env salt
 				 * - application logic

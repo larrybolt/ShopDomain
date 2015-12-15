@@ -19,12 +19,16 @@ public class IsPaidState implements State {
     @Override
     public void pay() {
         throw new IllegalArgumentException("is already Paid");
-
     }
 
     @Override
     public void notPayed() {
         verkoop.setCurrentState(new NotPaidState(verkoop));
+    }
+
+    @Override
+    public void clear() {
+        throw new IllegalArgumentException("is already Paid");
     }
 
 
