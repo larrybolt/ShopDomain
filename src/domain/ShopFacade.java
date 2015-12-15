@@ -6,7 +6,7 @@ import domain.person.PersonService;
 import domain.product.Product;
 import domain.product.ProductService;
 import domain.verkoop.KortingService;
-import domain.verkoop.Observer;
+import domain.verkoop.VerkoopObserver;
 import domain.verkoop.VerkoopEntry;
 import domain.verkoop.VerkoopService;
 
@@ -71,11 +71,11 @@ public class ShopFacade {
     }
 
     // observers
-    public void addObserver(Observer observer) {
+    public void addObserver(VerkoopObserver observer) {
         verkoopService.addObserver(observer);
     }
 
-    public void removeObserver(Observer observer) {
+    public void removeObserver(VerkoopObserver observer) {
         verkoopService.removeObserver(observer);
     }
 
@@ -126,7 +126,7 @@ public class ShopFacade {
     public void deleteProductinDB(String id) {
         productService.deleteProduct(id);
     }
-
+    
     // getters
     public Product getProduct(int id) {
         return productService.getProduct(id);
@@ -150,5 +150,9 @@ public class ShopFacade {
 
     public void pay(double amount) {
         verkoopService.pay(amount);
+    }
+
+    public void startNewSale() {
+        verkoopService.startNewSale();
     }
 }

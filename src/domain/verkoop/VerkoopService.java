@@ -41,21 +41,23 @@ public class VerkoopService {
         return verkoop.getTotalcost();
     }
 
-    public void addObserver(Observer observer) {
+    public void addObserver(VerkoopObserver observer) {
         verkoop.addObserver(observer);
     }
 
-    public void removeObserver(Observer observer) {
+    public void removeObserver(VerkoopObserver observer) {
         verkoop.removeObserver(observer);
     }
 
     public void pay(double amount) {
         verkoop.pay(amount);
-        // TODO: this is incorrect, we should make a new verkoop object instead
     }
 
     public void setKorting(Korting korting) {
         verkoop.setKorting(korting);
     }
 
+	public void startNewSale() {
+		verkoop = new Verkoop();
+	}
 }

@@ -1,9 +1,9 @@
 package domain.verkoop;
 
 public interface Subject {
-    void addObserver(Observer observer);
+    void addObserver(VerkoopObserver observer);
 
-    void removeObserver(Observer observer);
+    void removeObserver(VerkoopObserver observer);
 
     void notifyObservers();
 }

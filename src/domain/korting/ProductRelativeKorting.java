@@ -11,18 +11,12 @@ public class ProductRelativeKorting extends Korting {
     public ProductRelativeKorting(String code, double amount, Product product) {
         super(code, amount);
         setProduct(product);
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     public double berekenKorting(Verkoop verkoop) {
         boolean found = false;
         double totalPrice = 0;
-        /*
-         * TODO: Moeten we een korting op 1 product kunnen toepassen,
-		 * of op elk product van een type
-		 * of op meerdere producten
-		 */
         for (VerkoopEntry ve : verkoop.getProducts()) {
             if (!found && ve.getProduct().equals(product)) {
                 found = true;

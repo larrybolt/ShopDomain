@@ -20,7 +20,7 @@ public class Verkoop implements Subject {
     }
 
     private List<VerkoopEntry> entries;
-    private List<Observer> observers;
+    private List<VerkoopObserver> observers;
     private State currentState;
     private IsPaidState ispaid;
     private NotPaidState notpaid;
@@ -28,7 +28,7 @@ public class Verkoop implements Subject {
 
     public Verkoop() {
         entries = new ArrayList<VerkoopEntry>();
-        observers = new ArrayList<Observer>();
+        observers = new ArrayList<VerkoopObserver>();
         ispaid = new IsPaidState(this);
         notpaid = new NotPaidState(this);
         currentState = this.getNotPaidState();
@@ -54,10 +54,8 @@ public class Verkoop implements Subject {
         notifyObservers();
     }
 
-    // TODO: move this to state
     public void removeEntry(int index) {
-        getEntries().remove(index);
-        notifyObservers();
+    	currentState.removeEntry(index);
     }
 
     public void setAmountForEntry(int index, int amount) {
@@ -91,18 +89,18 @@ public class Verkoop implements Subject {
 
 
     @Override
-    public void addObserver(Observer observer) {
+    public void addObserver(VerkoopObserver observer) {
         observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer observer) {
+    public void removeObserver(VerkoopObserver observer) {
         observers.remove(observer);
     }
 
     @Override
     public void notifyObservers() {
-        for (Observer o : observers)
+        for (VerkoopObserver o : observers)
             o.update(this);
     }
 

@@ -9,4 +9,6 @@ public interface State {
     void notPayed();
 
     void clear();
+
+	void removeEntry(int index);
 }

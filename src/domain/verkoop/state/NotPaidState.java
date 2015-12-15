@@ -32,4 +32,10 @@ public class NotPaidState implements State {
         verkoop.getEntries().clear();
         verkoop.notifyObservers();
     }
+
+	@Override
+	public void removeEntry(int index) {
+        verkoop.getEntries().remove(index);
+        verkoop.notifyObservers();
+	}
 }

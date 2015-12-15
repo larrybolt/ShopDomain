@@ -1,6 +1,7 @@
 package domain.verkoop;
 
 import db.verkoop.KortingRepository;
+import db.verkoop.KortingRepositoryDB;
 import db.verkoop.KortingRepositoryMap;
 import domain.korting.Korting;
 
@@ -16,7 +17,7 @@ public class KortingService {
 
     public KortingService(InputStream resourceAsStream) {
         // TODO: KortingRepositoryDB has to be written
-        //this.repository = new KortingRepositoryDB(resourceAsStream);
+        this.repository = new KortingRepositoryDB(resourceAsStream);
     }
 
     public Korting getKorting(String code) {

@@ -1,6 +1,5 @@
 package db.person;
 
-
 import domain.person.Person;
 
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import java.util.Map;
 public class PersonRepositoryMap implements PersonRepository {
     private Map<Integer, Person> persons = new HashMap<Integer, Person>();
 
-    // TODO Implement
     public PersonRepositoryMap() {
     }
 
