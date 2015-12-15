@@ -9,6 +9,7 @@ import domain.verkoop.KortingService;
 import domain.verkoop.VerkoopObserver;
 import domain.verkoop.VerkoopEntry;
 import domain.verkoop.VerkoopService;
+import domain.verkoop.state.InsuffientPaymentException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -148,11 +149,16 @@ public class ShopFacade {
         productService.updateProducts(p);
     }
 
-    public void pay(double amount) {
+    public void pay(double amount) throws InsuffientPaymentException {
         verkoopService.pay(amount);
     }
 
     public void startNewSale() {
         verkoopService.startNewSale();
     }
+
+	public void deleteProductEntry(int rowToDelete) {
+		verkoopService.deleteProductEntry(rowToDelete);
+		
+	}
 }

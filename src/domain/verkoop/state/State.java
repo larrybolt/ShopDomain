@@ -4,7 +4,7 @@ public interface State {
 
     String getName();
 
-    void pay();
+    double pay(double payment) throws InsuffientPaymentException;
 
     void notPayed();
 

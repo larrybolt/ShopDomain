@@ -1,6 +1,5 @@
 package db.product;
 
-
 import db.BaseRepositoryDB;
 import domain.product.Product;
 

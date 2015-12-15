@@ -17,7 +17,7 @@ public class IsPaidState implements State {
     }
 
     @Override
-    public void pay() {
+    public double pay(double payment) {
         throw new IllegalArgumentException("is already Paid");
     }
 
@@ -35,6 +35,4 @@ public class IsPaidState implements State {
 	public void removeEntry(int index) {
         throw new IllegalArgumentException("is already Paid");
 	}
-
-
 }

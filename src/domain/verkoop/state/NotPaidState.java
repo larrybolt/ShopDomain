@@ -16,8 +16,14 @@ public class NotPaidState implements State {
     }
 
     @Override
-    public void pay() {
-        verkoop.setCurrentState(verkoop.getPaidState());
+    public double pay(double payment) throws InsuffientPaymentException {
+    	if (payment > verkoop.getTotalcost()) {
+			verkoop.setCurrentState(verkoop.getPaidState());
+			return payment - verkoop.getTotalcost();
+    	}
+    	else {
+    		throw new InsuffientPaymentException("Payment too low", verkoop.getTotalcost()-payment);
+    	}
     }
 
     @Override
@@ -28,7 +34,6 @@ public class NotPaidState implements State {
 
     @Override
     public void clear() {
-        // TODO: is dit wel juist
         verkoop.getEntries().clear();
         verkoop.notifyObservers();
     }

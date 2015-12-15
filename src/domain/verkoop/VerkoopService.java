@@ -2,6 +2,7 @@ package domain.verkoop;
 
 import domain.korting.Korting;
 import domain.product.Product;
+import domain.verkoop.state.InsuffientPaymentException;
 
 import java.util.ArrayList;
 
@@ -49,7 +50,7 @@ public class VerkoopService {
         verkoop.removeObserver(observer);
     }
 
-    public void pay(double amount) {
+    public void pay(double amount) throws InsuffientPaymentException {
         verkoop.pay(amount);
     }
 
@@ -59,5 +60,10 @@ public class VerkoopService {
 
 	public void startNewSale() {
 		verkoop = new Verkoop();
+	}
+
+	public void deleteProductEntry(int rowToDelete) {
+		verkoop.deleteProductEntry(rowToDelete);
+		
 	}
 }

@@ -1,16 +1,15 @@
 package domain.korting;
 
-import domain.product.Product;
 import domain.verkoop.Verkoop;
 import domain.verkoop.VerkoopEntry;
 
 public class ProductAbsoluutKorting extends Korting {
 
-    private Product product;
+    private int productid;
 
-    public ProductAbsoluutKorting(String code, double amount, Product product) {
+    public ProductAbsoluutKorting(String code, double amount, int productid) {
         super(code, amount);
-        setProduct(product);
+        setProductId(productid);
     }
 
     @Override
@@ -23,7 +22,7 @@ public class ProductAbsoluutKorting extends Korting {
 		 * of op meerdere producten
 		 */
         for (VerkoopEntry ve : verkoop.getProducts()) {
-            if (!found && ve.getProduct().equals(product)) {
+            if (!found && ve.getProduct().getId() == getProductId()) {
                 found = true;
                 totalPrice -= this.getAmount();
             }
@@ -32,12 +31,12 @@ public class ProductAbsoluutKorting extends Korting {
         return totalPrice;
     }
 
-    public Product getProduct() {
-        return product;
+    public int getProductId() {
+        return productid;
     }
 
-    private void setProduct(Product product) {
-        this.product = product;
+    private void setProductId(int productid) {
+        this.productid = productid;
     }
 
 }

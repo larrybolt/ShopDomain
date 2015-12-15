@@ -1,6 +1,8 @@
 package db.verkoop;
 
 import domain.korting.Korting;
+import domain.korting.ProductAbsoluutKorting;
+import domain.korting.ProductRelativeKorting;
 import domain.korting.TotaalAbsoluutKorting;
 import domain.korting.TotaalRelatiefKorting;
 
@@ -20,6 +22,14 @@ public class KortingRepositoryMap implements KortingRepository {
         this.add(new TotaalRelatiefKorting("10%", .10));
         this.add(new TotaalRelatiefKorting("15%", .15));
         this.add(new TotaalRelatiefKorting("20%", .20));
+
+        this.add(new ProductAbsoluutKorting("10-1", 10, 1));
+        this.add(new ProductAbsoluutKorting("15-1", 15, 1));
+        this.add(new ProductAbsoluutKorting("20-1", 20, 1));
+
+        this.add(new ProductRelativeKorting("10%1", .10, 1));
+        this.add(new ProductRelativeKorting("15%1", .15, 1));
+        this.add(new ProductRelativeKorting("20%1", .20, 1));
     }
 
     @Override

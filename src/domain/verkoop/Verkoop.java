@@ -2,6 +2,7 @@ package domain.verkoop;
 
 import domain.korting.Korting;
 import domain.product.Product;
+import domain.verkoop.state.InsuffientPaymentException;
 import domain.verkoop.state.IsPaidState;
 import domain.verkoop.state.NotPaidState;
 import domain.verkoop.state.State;
@@ -59,6 +60,9 @@ public class Verkoop implements Subject {
     }
 
     public void setAmountForEntry(int index, int amount) {
+    	if (amount < 0) {
+    		throw new IllegalArgumentException("Amount cannot be negative");
+    	}
         getEntries().get(index).setCount(amount);
         notifyObservers();
     }
@@ -112,8 +116,8 @@ public class Verkoop implements Subject {
         return ispaid;
     }
 
-    public void pay(double v) {
-        currentState.pay();
+    public void pay(double v) throws InsuffientPaymentException {
+        currentState.pay(v);
     }
 
     public void notPayed() {
@@ -136,4 +140,8 @@ public class Verkoop implements Subject {
     public void setCurrentState(State status) {
         this.currentState = status;
     }
+
+	public void deleteProductEntry(int rowToDelete) {
+		this.currentState.removeEntry(rowToDelete);
+	}
 }
