@@ -3,44 +3,44 @@ package domain.verkoop;
 import domain.product.Product;
 
 public class VerkoopEntry {
-	private Verkoop verkoop;
-	private Product product;
-	private int count = 0;
-	
-	public VerkoopEntry() {
-	}
-	
-	public VerkoopEntry(Verkoop verkoop, Product product, int count){
-		setVerkoop(verkoop);
-		setProduct(product);
-		setCount(count);
-	}
+    private Verkoop verkoop;
+    private Product product;
+    private int count = 0;
 
-	public Verkoop getVerkoop() {
-		return verkoop;
-	}
+    public VerkoopEntry() {
+    }
 
-	public void setVerkoop(Verkoop verkoop) {
-		this.verkoop = verkoop;
-	}
+    public VerkoopEntry(Verkoop verkoop, Product product, int count) {
+        setVerkoop(verkoop);
+        setProduct(product);
+        setCount(count);
+    }
 
-	public Product getProduct() {
-		return product;
-	}
+    public Verkoop getVerkoop() {
+        return verkoop;
+    }
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+    public void setVerkoop(Verkoop verkoop) {
+        this.verkoop = verkoop;
+    }
 
-	public int getCount() {
-		return count;
-	}
+    public Product getProduct() {
+        return product;
+    }
 
-	public void setCount(int count) {
-		this.count = count;
-	}
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-	public double getEntryPrice(){
-		return getCount()*getProduct().getPrice();
-	}
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public double getEntryPrice() {
+        return getCount() * getProduct().getPrice();
+    }
 }

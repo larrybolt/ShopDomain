@@ -1,15 +1,22 @@
 package db.person;
 
-import java.util.List;
 import domain.person.Person;
 
+import java.util.List;
+
 public interface PersonRepository {
-		
-		public Person get(int personId);
-		public List<Person> getAll();
-		public void add(Person person);
-		public void update(Person person);
-		public void delete(int id);
-		public int generateNewId();
-		public Person getPersonByEmail(String email);
+
+    Person get(int personId);
+
+    List<Person> getAll();
+
+    void add(Person person);
+
+    void update(Person person);
+
+    void delete(int id);
+
+    int generateNewId();
+
+    Person getPersonByEmail(String email);
 }

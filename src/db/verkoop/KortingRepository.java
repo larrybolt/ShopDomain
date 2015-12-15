@@ -1,11 +1,17 @@
 package db.verkoop;
-import java.util.List;
+
 import domain.korting.Korting;
 
+import java.util.List;
+
 public interface KortingRepository {
-		public Korting get(String code);
-		public List<Korting> getAll();
-		public void add(Korting korting);
-		public void update(Korting korting);
-		public void delete(String code);
+    Korting get(String code);
+
+    List<Korting> getAll();
+
+    void add(Korting korting);
+
+    void update(Korting korting);
+
+    void delete(String code);
 }

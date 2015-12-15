@@ -1,14 +1,19 @@
 package db.verkoop;
 
-import java.util.List;
-
 import domain.verkoop.Verkoop;
 
+import java.util.List;
+
 public interface VerkoopRepository {
-	public Verkoop get(int id);
-	public List<Verkoop> getAll();
-	public void add(Verkoop verkoop);
-	public void update(Verkoop verkoop);
-	public void delete(int id);
-	public int generateNewId();
+    Verkoop get(int id);
+
+    List<Verkoop> getAll();
+
+    void add(Verkoop verkoop);
+
+    void update(Verkoop verkoop);
+
+    void delete(int id);
+
+    int generateNewId();
 }

@@ -1,54 +1,57 @@
 package domain.product;
-import java.io.InputStream;
-import java.util.List;
 
 import db.product.ProductRepository;
 import db.product.ProductRepositoryDB;
 import db.product.ProductRepositoryMap;
 
+import java.io.InputStream;
+import java.util.List;
+
 public class ProductService {
-	private ProductRepository ProductRepository;
+    private ProductRepository ProductRepository;
 
-	public ProductService(){
-		this.ProductRepository = new ProductRepositoryMap();
-	}
-	
-	public ProductService(InputStream resourceAsStream) {
-		this.ProductRepository = new ProductRepositoryDB(resourceAsStream);
-	}
+    public ProductService() {
+        this.ProductRepository = new ProductRepositoryMap();
+    }
 
-	public Product getProduct(String id) {
-		return getProduct(Integer.parseInt(id));
-	}
-	public Product getProduct(int id) {
-		return getProductRepository().get(id);
-	}
+    public ProductService(InputStream resourceAsStream) {
+        this.ProductRepository = new ProductRepositoryDB(resourceAsStream);
+    }
 
-	public List<Product> getProducts() {
-		return getProductRepository().getAll();
-	}
+    public Product getProduct(String id) {
+        return getProduct(Integer.parseInt(id));
+    }
 
-	public List<Product> getProductsOrderByPrice() {
-		return getProductRepository().getAllOrderByPrice();
-	}
+    public Product getProduct(int id) {
+        return getProductRepository().get(id);
+    }
 
-	public void addProduct(Product product) {
-		product.setId(getProductRepository().generateNewId());
-		getProductRepository().add(product);
-	}
+    public List<Product> getProducts() {
+        return getProductRepository().getAll();
+    }
 
-	public void updateProducts(Product product) {
-		getProductRepository().update(product);
-	}
+    public List<Product> getProductsOrderByPrice() {
+        return getProductRepository().getAllOrderByPrice();
+    }
 
-	public void deleteProduct(String id) {
-		deleteProduct(Integer.parseInt(id));
-	}
-	public void deleteProduct(int id) {
-		getProductRepository().delete(id);
-	}
+    public void addProduct(Product product) {
+        product.setId(getProductRepository().generateNewId());
+        getProductRepository().add(product);
+    }
 
-	private ProductRepository getProductRepository() {
-		return ProductRepository;
-	}
+    public void updateProducts(Product product) {
+        getProductRepository().update(product);
+    }
+
+    public void deleteProduct(String id) {
+        deleteProduct(Integer.parseInt(id));
+    }
+
+    public void deleteProduct(int id) {
+        getProductRepository().delete(id);
+    }
+
+    private ProductRepository getProductRepository() {
+        return ProductRepository;
+    }
 }
