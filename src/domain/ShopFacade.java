@@ -11,6 +11,7 @@ import domain.verkoop.VerkoopEntry;
 import domain.verkoop.VerkoopService;
 import domain.verkoop.state.InsuffientPaymentException;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,14 @@ public class ShopFacade {
         this.kortingService = new KortingService();
     }
 
-    public void addProduct(int id, int aantal) {
+    public ShopFacade(InputStream configFile) {
+        this.productService = new ProductService(configFile);
+        this.personService = new PersonService(configFile);
+        this.verkoopService = new VerkoopService();
+        this.kortingService = new KortingService(configFile);
+	}
+
+	public void addProduct(int id, int aantal) {
         if (aantal < 1) {
             throw new IllegalArgumentException("Please input a possitive amount.");
         }
