@@ -51,6 +51,7 @@ public class VerkoopService {
 
     public void pay(double amount) {
         verkoop.pay(amount);
+        // TODO: this is incorrect, we should make a new verkoop object instead
     }
 
     public void setKorting(Korting korting) {

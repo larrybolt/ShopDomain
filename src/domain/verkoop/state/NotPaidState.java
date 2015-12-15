@@ -17,7 +17,7 @@ public class NotPaidState implements State {
 
     @Override
     public void pay() {
-        verkoop.setCurrentState(new IsPaidState(verkoop));
+        verkoop.setCurrentState(verkoop.getPaidState());
     }
 
     @Override
