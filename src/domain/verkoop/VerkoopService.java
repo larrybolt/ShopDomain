@@ -1,17 +1,26 @@
 package domain.verkoop;
 
+import db.verkoop.VerkoopRepository;
+import db.verkoop.VerkoopRepositoryDB;
 import domain.korting.Korting;
 import domain.product.Product;
 import domain.verkoop.state.InsuffientPaymentException;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class VerkoopService {
 
     private Verkoop verkoop;
+    private VerkoopRepository verkoopRepository;
 
     public VerkoopService() {
         verkoop = new Verkoop();
+    }
+
+    public VerkoopService(InputStream configFile) {
+        verkoop = new Verkoop();
+        verkoopRepository = new VerkoopRepositoryDB(configFile);
     }
 
     public void addProduct(Product product, int aantal) {
@@ -58,12 +67,12 @@ public class VerkoopService {
         verkoop.setKorting(korting);
     }
 
-	public void startNewSale() {
-		verkoop = new Verkoop();
-	}
+    public void startNewSale() {
+        verkoop = new Verkoop();
+    }
 
-	public void deleteProductEntry(int rowToDelete) {
-		verkoop.deleteProductEntry(rowToDelete);
-		
-	}
+    public void deleteProductEntry(int rowToDelete) {
+        verkoop.deleteProductEntry(rowToDelete);
+
+    }
 }

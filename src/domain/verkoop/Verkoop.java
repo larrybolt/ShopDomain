@@ -56,13 +56,13 @@ public class Verkoop implements Subject {
     }
 
     public void removeEntry(int index) {
-    	currentState.removeEntry(index);
+        currentState.removeEntry(index);
     }
 
     public void setAmountForEntry(int index, int amount) {
-    	if (amount < 0) {
-    		throw new IllegalArgumentException("Amount cannot be negative");
-    	}
+        if (amount < 0) {
+            throw new IllegalArgumentException("Amount cannot be negative");
+        }
         getEntries().get(index).setCount(amount);
         notifyObservers();
     }
@@ -141,7 +141,7 @@ public class Verkoop implements Subject {
         this.currentState = status;
     }
 
-	public void deleteProductEntry(int rowToDelete) {
-		this.currentState.removeEntry(rowToDelete);
-	}
+    public void deleteProductEntry(int rowToDelete) {
+        this.currentState.removeEntry(rowToDelete);
+    }
 }

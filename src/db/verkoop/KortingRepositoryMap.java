@@ -1,10 +1,10 @@
 package db.verkoop;
 
 import domain.korting.Korting;
-import domain.korting.ProductAbsoluutKorting;
-import domain.korting.ProductRelativeKorting;
-import domain.korting.TotaalAbsoluutKorting;
-import domain.korting.TotaalRelatiefKorting;
+import domain.korting.types.ProductAbsoluutKorting;
+import domain.korting.types.ProductRelativeKorting;
+import domain.korting.types.TotaalAbsoluutKorting;
+import domain.korting.types.TotaalRelatiefKorting;
 
 import java.util.ArrayList;
 import java.util.HashMap;

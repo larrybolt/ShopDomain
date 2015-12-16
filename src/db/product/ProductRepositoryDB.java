@@ -25,13 +25,15 @@ public class ProductRepositoryDB extends BaseRepositoryDB implements ProductRepo
             );
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
-            result.next();
-            return new Product(
-                    id,
-                    result.getString("name"),
-                    result.getDouble("price"),
-                    result.getString("imgurl")
-            );
+            while (result.next()) {
+                return new Product(
+                        id,
+                        result.getString("name"),
+                        result.getDouble("price"),
+                        result.getString("imgurl")
+                );
+            }
+            throw new IllegalArgumentException("Couldn't find product with that id");
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

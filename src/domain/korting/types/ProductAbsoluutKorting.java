@@ -1,5 +1,6 @@
-package domain.korting;
+package domain.korting.types;
 
+import domain.korting.Korting;
 import domain.verkoop.Verkoop;
 import domain.verkoop.VerkoopEntry;
 
@@ -8,6 +9,10 @@ public class ProductAbsoluutKorting extends Korting {
     private int productid;
 
     public ProductAbsoluutKorting(String code, double amount, int productid) {
+        this(code, new Double(amount), new Integer(productid));
+    }
+
+    public ProductAbsoluutKorting(String code, Double amount, Integer productid) {
         super(code, amount);
         setProductId(productid);
     }

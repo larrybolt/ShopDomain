@@ -10,5 +10,5 @@ public interface State {
 
     void clear();
 
-	void removeEntry(int index);
+    void removeEntry(int index);
 }

@@ -1,21 +1,21 @@
 package domain.verkoop.state;
 
 public class InsuffientPaymentException extends Exception {
-	
-	private static final long serialVersionUID = 1L;
-	private double difference;
 
-	public InsuffientPaymentException(String message, double difference) {
-		super(message);
-		setDifference(difference);
-	}
+    private static final long serialVersionUID = 1L;
+    private double difference;
 
-	public double getDifference() {
-		return difference;
-	}
+    public InsuffientPaymentException(String message, double difference) {
+        super(message);
+        setDifference(difference);
+    }
 
-	public void setDifference(double difference) {
-		this.difference = difference;
-	}
+    public double getDifference() {
+        return difference;
+    }
+
+    public void setDifference(double difference) {
+        this.difference = difference;
+    }
 
 }

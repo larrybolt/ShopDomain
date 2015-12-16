@@ -6,8 +6,8 @@ import domain.person.PersonService;
 import domain.product.Product;
 import domain.product.ProductService;
 import domain.verkoop.KortingService;
-import domain.verkoop.VerkoopObserver;
 import domain.verkoop.VerkoopEntry;
+import domain.verkoop.VerkoopObserver;
 import domain.verkoop.VerkoopService;
 import domain.verkoop.state.InsuffientPaymentException;
 
@@ -31,11 +31,11 @@ public class ShopFacade {
     public ShopFacade(InputStream configFile) {
         this.productService = new ProductService(configFile);
         this.personService = new PersonService(configFile);
-        this.verkoopService = new VerkoopService();
+        this.verkoopService = new VerkoopService(configFile);
         this.kortingService = new KortingService(configFile);
-	}
+    }
 
-	public void addProduct(int id, int aantal) {
+    public void addProduct(int id, int aantal) {
         if (aantal < 1) {
             throw new IllegalArgumentException("Please input a possitive amount.");
         }
@@ -135,7 +135,7 @@ public class ShopFacade {
     public void deleteProductinDB(String id) {
         productService.deleteProduct(id);
     }
-    
+
     // getters
     public Product getProduct(int id) {
         return productService.getProduct(id);
@@ -165,8 +165,8 @@ public class ShopFacade {
         verkoopService.startNewSale();
     }
 
-	public void deleteProductEntry(int rowToDelete) {
-		verkoopService.deleteProductEntry(rowToDelete);
-		
-	}
+    public void deleteProductEntry(int rowToDelete) {
+        verkoopService.deleteProductEntry(rowToDelete);
+
+    }
 }
