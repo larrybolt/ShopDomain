@@ -26,7 +26,7 @@ public class KortingFactory {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("Invalid data in database");
         } catch (NoSuchMethodException e) {
-            throw new RuntimeException("Invalisdafd data in database");
+        	throw new RuntimeException("Invalid dddata in database");
         } catch (Exception e) {
             throw new RuntimeException("Invalid dddata in database");
         }
