@@ -4,12 +4,10 @@ import java.lang.reflect.Constructor;
 
 public class KortingFactory {
     public Korting createKorting(String code, double amount, String type, int productid) {
+		String path = KortingFactory.class.getCanonicalName();
+		path = path.substring(0, path.lastIndexOf("."));
+		path += ".types." + type;
         try {
-            String path = KortingFactory.class.getCanonicalName();
-            path = path.substring(0, path.lastIndexOf("."));
-            path += ".types." + type;
-            System.out.println("path:" + path);
-            System.out.println("productid:" + productid);
             Class<?> kortingClass = Class.forName(path);
             Constructor<?> kortingConstructor;
             Object kortingInstance;

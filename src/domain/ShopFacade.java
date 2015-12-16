@@ -127,6 +127,10 @@ public class ShopFacade {
             throw new IllegalArgumentException("No such korting found!");
         }
     }
+    
+    public ArrayList<Korting> getKortingen() {
+    	return (ArrayList<Korting>)getKortingService().getKortings();
+    }
 
     private KortingService getKortingService() {
         return this.kortingService;

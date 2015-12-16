@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class BaseRepositoryDB {
+public abstract class BaseRepositoryDB {
 
     private String table;
     private Properties properties;

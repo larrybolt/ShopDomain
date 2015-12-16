@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class KortingRepositoryDB extends BaseRepositoryDB implements KortingRepository {
@@ -38,8 +40,24 @@ public class KortingRepositoryDB extends BaseRepositoryDB implements KortingRepo
 
     @Override
     public List<Korting> getAll() {
-        // TODO Auto-generated method stub
-        return null;
+        List<Korting> kortingen = new ArrayList<>();
+        try {
+            Statement statement = db.createStatement();
+            ResultSet results = statement.executeQuery(String.format("SELECT * FROM %s", this.getTable()));
+            while (results.next()) {
+            	kortingen.add(factory.createKorting(
+            			results.getString("code"), 
+            			results.getDouble("amount"), 
+            			results.getString("type"), 
+            			results.getInt("productid")
+            			));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return kortingen;
     }
 
     @Override

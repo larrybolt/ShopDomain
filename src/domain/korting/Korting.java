@@ -6,8 +6,6 @@ abstract public class Korting {
     private String code;
     private double amount;
 
-    //private boolean kortingApplied = false;
-
     abstract public double berekenKorting(Verkoop verkoop);
 
     protected Korting(String code, double amount) {
