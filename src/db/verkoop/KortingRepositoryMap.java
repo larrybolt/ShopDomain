@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * 
+ * @author Larry 
+ *
+ */
 public class KortingRepositoryMap implements KortingRepository {
     private Map<String, Korting> kortingen = new HashMap<>();
 

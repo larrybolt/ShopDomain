@@ -1,7 +1,11 @@
 package domain.verkoop.state;
 
 import domain.verkoop.Verkoop;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class NotPaidState implements State {
 
     private Verkoop verkoop;

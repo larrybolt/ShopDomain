@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class ProductRepositoryMap implements ProductRepository {
     private Map<Integer, Product> Products = new HashMap<Integer, Product>();
 

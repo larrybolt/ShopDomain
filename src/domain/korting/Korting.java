@@ -1,7 +1,11 @@
 package domain.korting;
 
 import domain.verkoop.Verkoop;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 abstract public class Korting {
     private String code;
     private double amount;

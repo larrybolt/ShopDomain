@@ -1,5 +1,9 @@
 package db.verkoop;
-
+/**
+ * 
+ * @author Larry
+ *
+ */
 import domain.korting.Korting;
 
 import java.util.List;

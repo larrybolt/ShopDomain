@@ -4,6 +4,11 @@ import domain.product.Product;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public interface ProductRepository {
 
     Product get(int id);

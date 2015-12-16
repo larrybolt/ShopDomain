@@ -3,7 +3,11 @@ package domain.korting.types;
 import domain.korting.Korting;
 import domain.verkoop.Verkoop;
 import domain.verkoop.VerkoopEntry;
-
+/**
+ * 
+ * @author Larry 
+ *
+ */
 public class ProductRelativeKorting extends Korting {
 
     private int productid;

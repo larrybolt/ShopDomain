@@ -1,5 +1,9 @@
 package domain.verkoop;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public interface Subject {
     void addObserver(VerkoopObserver observer);
 

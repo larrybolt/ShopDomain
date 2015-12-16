@@ -6,7 +6,11 @@ import db.product.ProductRepositoryMap;
 
 import java.io.InputStream;
 import java.util.List;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class ProductService {
     private ProductRepository ProductRepository;
 

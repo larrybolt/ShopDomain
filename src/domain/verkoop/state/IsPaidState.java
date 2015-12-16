@@ -1,5 +1,9 @@
 package domain.verkoop.state;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 import domain.verkoop.Verkoop;
 
 public class IsPaidState implements State {

@@ -8,7 +8,11 @@ import domain.verkoop.state.InsuffientPaymentException;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class VerkoopService {
 
     private Verkoop verkoop;

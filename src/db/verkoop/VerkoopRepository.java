@@ -3,7 +3,11 @@ package db.verkoop;
 import domain.verkoop.Verkoop;
 
 import java.util.List;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public interface VerkoopRepository {
     Verkoop get(int id);
 

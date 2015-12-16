@@ -1,7 +1,11 @@
 package domain.verkoop;
 
 import domain.product.Product;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class VerkoopEntry {
     private Verkoop verkoop;
     private Product product;

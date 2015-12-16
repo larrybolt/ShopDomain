@@ -6,7 +6,11 @@ import db.person.PersonRepositoryMap;
 
 import java.io.InputStream;
 import java.util.List;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class PersonService {
     private PersonRepository personRepository;
 

@@ -11,7 +11,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author Larry
+ *
+ */
 public class KortingRepositoryDB extends BaseRepositoryDB implements KortingRepository {
     private KortingFactory factory;
 

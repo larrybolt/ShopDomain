@@ -10,7 +10,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class ProductRepositoryDB extends BaseRepositoryDB implements ProductRepository {
 
     public ProductRepositoryDB(InputStream resourceAsStream) {

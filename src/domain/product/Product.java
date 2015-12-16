@@ -1,5 +1,9 @@
 package domain.product;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class Product {
     private int id;
     private String name;

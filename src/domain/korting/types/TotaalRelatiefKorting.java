@@ -2,7 +2,11 @@ package domain.korting.types;
 
 import domain.korting.Korting;
 import domain.verkoop.Verkoop;
-
+/**
+ * 
+ * @author Larry
+ *
+ */
 public class TotaalRelatiefKorting extends Korting {
 
     public TotaalRelatiefKorting(String code, double amount) {

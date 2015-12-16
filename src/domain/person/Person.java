@@ -7,7 +7,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class Person {
     private int id;
     private String email;

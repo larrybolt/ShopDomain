@@ -7,6 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class PersonRepositoryMap implements PersonRepository {
     private Map<Integer, Person> persons = new HashMap<Integer, Person>();
 

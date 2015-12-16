@@ -12,6 +12,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
+
 public class PersonRepositoryDB extends BaseRepositoryDB implements PersonRepository {
 
     public PersonRepositoryDB(InputStream resourceAsStream) {

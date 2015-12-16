@@ -5,7 +5,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public abstract class BaseRepositoryDB {
 
     private String table;

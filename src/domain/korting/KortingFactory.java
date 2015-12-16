@@ -1,7 +1,11 @@
 package domain.korting;
 
 import java.lang.reflect.Constructor;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class KortingFactory {
     public Korting createKorting(String code, double amount, String type, int productid) {
 		String path = KortingFactory.class.getCanonicalName();

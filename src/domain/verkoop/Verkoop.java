@@ -9,7 +9,11 @@ import domain.verkoop.state.State;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class Verkoop implements Subject {
 
     public List<VerkoopEntry> getEntries() {

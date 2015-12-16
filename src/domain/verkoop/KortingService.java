@@ -7,7 +7,11 @@ import domain.korting.Korting;
 
 import java.io.InputStream;
 import java.util.List;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class KortingService {
     private KortingRepository repository;
 

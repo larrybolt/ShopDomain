@@ -14,7 +14,11 @@ import domain.verkoop.state.InsuffientPaymentException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 
+ * @author Annelore &Larry
+ *
+ */
 public class ShopFacade {
     private ProductService productService;
     private PersonService personService;

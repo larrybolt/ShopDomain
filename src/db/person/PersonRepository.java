@@ -4,6 +4,11 @@ import domain.person.Person;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public interface PersonRepository {
 
     Person get(int personId);

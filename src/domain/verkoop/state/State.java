@@ -1,5 +1,9 @@
 package domain.verkoop.state;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public interface State {
 
     String getName();

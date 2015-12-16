@@ -1,5 +1,9 @@
 package domain.verkoop.state;
-
+/**
+ * 
+ * @author Larry & Annelore
+ *
+ */
 public class InsuffientPaymentException extends Exception {
 
     private static final long serialVersionUID = 1L;
