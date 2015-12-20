@@ -115,7 +115,7 @@ public class ShopFacade {
     public ArrayList<Product> getProducts() {
         return (ArrayList<Product>) productService.getProducts();
     }
-    public List<Product> getProductsFromDBOrderByPrice() {
+    public List<Product> getProductsOrderByPrice() {
         return productService.getProductsOrderByPrice();
     }
     public Product getProduct(int id) {
